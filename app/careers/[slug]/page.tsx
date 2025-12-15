@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Briefcase, MapPin, Upload, Loader2, ArrowLeft } from "lucide-react";
 import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import {
   fetchJobBySlug,
   submitApplication,
@@ -122,11 +123,10 @@ const NotFoundState = () => (
   </main>
 );
 
-export default function CareerDetailPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default function CareerDetailPage() {
+  const params = useParams<{ slug: string }>();
+  const slug = params.slug;
+  
   const [job, setJob] = useState<JobDetail | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -152,12 +152,14 @@ export default function CareerDetailPage({
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const loadJob = useCallback(async () => {
+    if (!slug) return;
+    
     setIsLoading(true);
     setError(null);
     setNotFound(false);
 
     try {
-      const response = await fetchJobBySlug(params.slug);
+      const response = await fetchJobBySlug(slug);
       if (response.success && response.data) {
         setJob(response.data);
       } else {
@@ -176,7 +178,7 @@ export default function CareerDetailPage({
     } finally {
       setIsLoading(false);
     }
-  }, [params.slug]);
+  }, [slug]);
 
   useEffect(() => {
     loadJob();

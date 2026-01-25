@@ -18,12 +18,123 @@ const navLinksRight = [
   // { href: "/contact", label: "Contact Us" },
 ];
 
+// Curly underline SVG component
+function CurlyUnderline({ isVisible }: { isVisible: boolean }) {
+  return (
+    <motion.svg
+      className="absolute -bottom-1 left-0 w-full h-2 overflow-visible"
+      viewBox="0 0 100 8"
+      preserveAspectRatio="none"
+      initial={{ pathLength: 0, opacity: 0 }}
+      animate={{
+        pathLength: isVisible ? 1 : 0,
+        opacity: isVisible ? 1 : 0,
+      }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <motion.path
+        d="M0 4 Q 12.5 0, 25 4 T 50 4 T 75 4 T 100 4"
+        fill="none"
+        stroke="#604cf1"
+        strokeWidth="2"
+        strokeLinecap="round"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: isVisible ? 1 : 0 }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      />
+    </motion.svg>
+  );
+}
+
+// NavLink component with curly underline
+function NavLink({
+  href,
+  label,
+  isActive,
+  onClick,
+  className = "",
+}: {
+  href: string;
+  label: string;
+  isActive: boolean;
+  onClick?: () => void;
+  className?: string;
+}) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`relative text-base font-medium transition-colors duration-200 ${
+        isActive ? "text-black" : "text-black/60 hover:text-black"
+      } ${className}`}
+    >
+      {label}
+      <CurlyUnderline isVisible={isActive || isHovered} />
+    </Link>
+  );
+}
+
+// Mobile NavLink component with curly underline
+function MobileNavLink({
+  href,
+  label,
+  isActive,
+  onClick,
+}: {
+  href: string;
+  label: string;
+  isActive: boolean;
+  onClick?: () => void;
+}) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`relative text-2xl font-medium transition-colors duration-200 ${
+        isActive ? "text-black" : "text-black/60 hover:text-black"
+      }`}
+    >
+      {label}
+      <motion.svg
+        className="absolute -bottom-2 left-0 w-full h-3 overflow-visible"
+        viewBox="0 0 100 8"
+        preserveAspectRatio="none"
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={{
+          pathLength: isActive || isHovered ? 1 : 0,
+          opacity: isActive || isHovered ? 1 : 0,
+        }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <motion.path
+          d="M0 4 Q 12.5 0, 25 4 T 50 4 T 75 4 T 100 4"
+          fill="none"
+          stroke="#604cf1"
+          strokeWidth="2"
+          strokeLinecap="round"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: isActive || isHovered ? 1 : 0 }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        />
+      </motion.svg>
+    </Link>
+  );
+}
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  const isActive = (href: string) => {
+  const isActivePath = (href: string) => {
     if (href === "/") {
       return pathname === "/";
     }
@@ -66,16 +177,11 @@ export default function Navbar() {
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
-                <Link
+                <NavLink
                   href={link.href}
-                  className={`text-base font-medium transition-all duration-200 ${
-                    isActive(link.href)
-                      ? "text-black underline underline-offset-4"
-                      : "text-black/60 hover:text-black"
-                  }`}
-                >
-                  {link.label}
-                </Link>
+                  label={link.label}
+                  isActive={isActivePath(link.href)}
+                />
               </motion.li>
             ))}
           </ul>
@@ -140,16 +246,11 @@ export default function Navbar() {
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
-                <Link
+                <NavLink
                   href={link.href}
-                  className={`text-base font-medium transition-all duration-200 ${
-                    isActive(link.href)
-                      ? "text-black underline underline-offset-4"
-                      : "text-black/60 hover:text-black"
-                  }`}
-                >
-                  {link.label}
-                </Link>
+                  label={link.label}
+                  isActive={isActivePath(link.href)}
+                />
               </motion.li>
             ))}
           </ul>
@@ -181,17 +282,12 @@ export default function Navbar() {
                     ease: [0.22, 1, 0.36, 1],
                   }}
                 >
-                  <Link
+                  <MobileNavLink
                     href={link.href}
+                    label={link.label}
+                    isActive={isActivePath(link.href)}
                     onClick={() => setIsOpen(false)}
-                    className={`text-2xl font-medium transition-all duration-200 ${
-                      isActive(link.href)
-                        ? "text-black underline underline-offset-4"
-                        : "text-black/60 hover:text-black"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
+                  />
                 </motion.div>
               ))}
             </div>

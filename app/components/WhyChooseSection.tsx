@@ -8,7 +8,7 @@ const reasons = [
   {
     icon: "/results.svg",
     title: "Proven Results",
-    description: "We've helped [X] businesses increase revenue by [Y]%.",
+    description: "We've helped 20+ businesses increase revenue by 40%.",
     bgSvg: "/why-choose-1.svg",
   },
   {

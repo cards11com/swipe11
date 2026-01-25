@@ -2,7 +2,7 @@ import CreatorsHero from "../components/creators/CreatorsHero";
 import NumbersSection from "../components/NumbersSection";
 import WhyJoinSection from "../components/creators/WhyJoinSection";
 import NavigateSection from "../components/creators/NavigateSection";
-import MissionVisionSection from "../components/creators/MissionVisionSection";
+// import MissionVisionSection from "../components/creators/MissionVisionSection";
 import TalkToUsSection from "../components/TalkToUsSection";
 
 export default function CreatorsPage() {
@@ -11,7 +11,8 @@ export default function CreatorsPage() {
       <CreatorsHero />
       <NumbersSection />
       <WhyJoinSection />
-      <MissionVisionSection />
+      {/* MissionVisionSection hidden */}
+      {/* <MissionVisionSection /> */}
       <NavigateSection />
       <TalkToUsSection />
     </main>

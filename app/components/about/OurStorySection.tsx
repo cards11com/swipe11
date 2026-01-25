@@ -51,20 +51,20 @@ export default function OurStorySection() {
           >
             <div className="text-[#003200] text-lg md:text-xl leading-relaxed space-y-6">
               <p>
-                Lorem ipsum dolor sit amet consectetur. Nascetur sapien nulla in
-                turpis sodales. Eu molestie enim luctus egestas. Tincidunt netus
-                non urna proin tempus pulvinar rhoncus orci vulputate. Enim
-                laoreet tortor tincidunt sit.
+                Swipe11 was born from a simple observation: Indian brands deserve 
+                world-class marketing that understands the local landscape. Founded 
+                in 2020, we set out to bridge the gap between innovative digital 
+                strategies and the unique needs of BFSI and digital-first companies 
+                in India.
               </p>
               <p>
-                Lorem ipsum dolor sit amet consectetur. Nascetur sapien nulla in
-                turpis sodales. Eu molestie enim luctus egestas. Tincidunt netus
-                non urna proin tempus pulvinar rhoncus orci vulputate. Enim
-                laoreet tortor tincidunt sit. Lorem ipsum dolor sit amet
-                consectetur. Nascetur sapien nulla in turpis sodales. Eu
-                molestie enim luctus egestas. Tincidunt netus non urna proin
-                tempus pulvinar rhoncus orci vulputate. Enim laoreet tortor
-                tincidunt sit.
+                What started as a small team of passionate marketers has grown into 
+                a full-service agency trusted by leading startups and enterprises 
+                alike. We&apos;ve helped brands navigate the ever-evolving digital 
+                ecosystem, from crafting viral social media campaigns to executing 
+                data-driven product launches. Our approach combines creativity with 
+                analytics, ensuring every campaign delivers measurable results and 
+                meaningful impact.
               </p>
             </div>
           </motion.div>

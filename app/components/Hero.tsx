@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden px-5 md:px-10 lg:px-20 pt-4 md:pt-6 lg:pt-8 pb-12 md:pb-16 lg:pb-20">
       <div className="max-w-[1440px] mx-auto">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-8">
           {/* Left Content */}
           <div className="flex flex-col gap-8 md:gap-12 w-full lg:w-1/2 z-10">
             {/* Headline */}
@@ -101,20 +102,22 @@ export default function Hero() {
               }}
               className="flex flex-wrap gap-4 md:gap-6 items-center"
             >
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-[#604cf1] text-white font-medium text-base md:text-lg px-6 py-3 rounded-full hover:bg-[#5040d9] transition-colors duration-200 min-w-[148px]"
-              >
-                Contact Us
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-white text-[#1e1e1e] font-medium text-base md:text-lg px-6 py-3 rounded-full border-2 border-black hover:bg-gray-50 transition-colors duration-200 min-w-[148px]"
-              >
-                View services
-              </motion.button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  href="/creators#talk-to-us"
+                  className="inline-flex items-center justify-center bg-[#604cf1] text-white font-medium text-base md:text-lg px-6 py-3 rounded-full hover:bg-[#5040d9] transition-colors duration-200 min-w-[148px]"
+                >
+                  Contact Us
+                </Link>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  href="#services"
+                  className="inline-flex items-center justify-center bg-white text-[#1e1e1e] font-medium text-base md:text-lg px-6 py-3 rounded-full border-2 border-black hover:bg-gray-50 transition-colors duration-200 min-w-[148px]"
+                >
+                  View services
+                </Link>
+              </motion.div>
             </motion.div>
           </div>
 

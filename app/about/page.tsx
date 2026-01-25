@@ -1,5 +1,6 @@
 import AboutUsHero from "../components/about/AboutUsHero";
 import OurStorySection from "../components/about/OurStorySection";
+import AboutUsBanner from "../components/about/AboutUsBanner";
 import NumbersSection from "../components/NumbersSection";
 import MissionVisionSection from "../components/creators/MissionVisionSection";
 import UnlockGrowthSection from "../components/about/UnlockGrowthSection";
@@ -12,6 +13,7 @@ export default function AboutPage() {
     <main className="mt-16 md:mt-20">
       <AboutUsHero />
       <OurStorySection />
+      <AboutUsBanner />
       <NumbersSection />
       <MissionVisionSection />
       <UnlockGrowthSection />

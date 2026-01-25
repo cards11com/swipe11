@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 
 const benefits = [
   {
@@ -82,39 +81,6 @@ function BenefitCard({
           {description}
         </p>
 
-        {/* View Services Link */}
-        <div className="mt-auto pt-6 sm:pt-8">
-          <Link
-            href="#services"
-            className="inline-flex items-center gap-2 text-black text-sm font-medium uppercase tracking-[0.05em] hover:gap-3 transition-all duration-300 group"
-          >
-            <span>View services</span>
-            <svg
-              width="24"
-              height="12"
-              viewBox="0 0 24 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            >
-              <line
-                x1="0"
-                y1="6"
-                x2="20"
-                y2="6"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              />
-              <path
-                d="M18 2L22 6L18 10"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Link>
-        </div>
       </div>
     </div>
   );
@@ -132,7 +98,7 @@ export default function WhyJoinSection() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-[#060606] text-3xl sm:text-4xl md:text-[44px] lg:text-[48px] font-bold leading-[1.2] tracking-[0.02em] text-center"
         >
-          Why Join Swipe11?
+          Why Swipe11?
         </motion.h2>
 
         {/* Cards Grid - Desktop */}

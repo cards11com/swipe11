@@ -13,19 +13,19 @@ const services: ServiceCard[] = [
     number: "01",
     title: "Strategic Brand Building",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Nascetur sapien nulla in turpis sodales. Eu molestie enim luctus egestas. Tincidunt netus non urna proin tempus pulvinar rhoncus orci vulputate. Enim laoreet tortor tincidunt sit.",
+      "We craft compelling brand narratives that resonate with your target audience. From positioning to visual identity, we help BFSI and digital-first brands stand out in crowded markets and build lasting customer relationships.",
   },
   {
     number: "02",
     title: "Digital Growth Solutions",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Nascetur sapien nulla in turpis sodales. Eu molestie enim luctus egestas. Tincidunt netus non urna proin tempus pulvinar rhoncus orci vulputate. Enim laoreet tortor tincidunt sit.",
+      "Accelerate your digital presence with data-driven strategies. Our team leverages social media, content marketing, and SEO to drive organic growth, increase engagement, and convert followers into loyal customers.",
   },
   {
     number: "03",
     title: "Performance Marketing",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Nascetur sapien nulla in turpis sodales. Eu molestie enim luctus egestas. Tincidunt netus non urna proin tempus pulvinar rhoncus orci vulputate. Enim laoreet tortor tincidunt sit.",
+      "Maximize ROI with precision-targeted campaigns across Google, Meta, and programmatic channels. We optimize every rupee spent to deliver measurable results, from lead generation to app installs and beyond.",
   },
 ];
 
@@ -92,5 +92,6 @@ export default function UnlockGrowthSection() {
     </section>
   );
 }
+
 
 

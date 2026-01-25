@@ -118,7 +118,7 @@ export default function TalkToUsSection() {
   };
 
   return (
-    <section className="relative w-full overflow-hidden px-5 md:px-10 lg:px-20 py-12 md:py-16">
+    <section id="talk-to-us" className="relative w-full overflow-hidden px-5 md:px-10 lg:px-20 py-12 md:py-16 scroll-mt-20">
       <div className="max-w-[1440px] mx-auto">
         {/* Background Container */}
         <div className="relative w-full min-h-[550px] md:min-h-[520px]">

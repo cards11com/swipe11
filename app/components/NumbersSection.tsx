@@ -14,25 +14,25 @@ const stats: StatItem[] = [
   {
     value: 200,
     suffix: "+",
-    label: "Lorem ipsum dolor sit amet consectetur.",
+    label: "Successful campaigns delivered for top brands.",
     color: "#ff891b",
   },
   {
     value: 40,
     suffix: "L +",
-    label: "Lorem ipsum dolor sit amet consectetur.",
+    label: "Social media reach generated monthly.",
     color: "#604cf1",
   },
   {
     value: 10,
     suffix: "+",
-    label: "Lorem ipsum dolor sit amet consectetur.",
+    label: "Years of combined marketing expertise.",
     color: "#1977f3",
   },
   {
     value: 5,
     suffix: "K",
-    label: "Lorem ipsum dolor sit amet consectetur.",
+    label: "Creators in our growing community.",
     color: "#ffcc00",
   },
 ];

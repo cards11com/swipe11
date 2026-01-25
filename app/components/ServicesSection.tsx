@@ -263,7 +263,7 @@ export default function ServicesSection() {
   // Desktop grid layout
   if (isDesktop) {
     return (
-      <section className="w-full px-5 md:px-10 lg:px-20 py-16 md:py-20 lg:py-24">
+      <section id="services" className="w-full px-5 md:px-10 lg:px-20 py-16 md:py-20 lg:py-24 scroll-mt-20">
         <div className="max-w-[1440px] mx-auto flex flex-col gap-10 md:gap-14">
           {/* Section Heading */}
           <motion.h2
@@ -306,7 +306,7 @@ export default function ServicesSection() {
 
   // Mobile/Tablet carousel layout
   return (
-    <section className="w-full py-16 md:py-20 lg:py-24 overflow-hidden">
+    <section id="services" className="w-full py-16 md:py-20 lg:py-24 overflow-hidden scroll-mt-20">
       <div className="max-w-[1440px] mx-auto flex flex-col gap-8 md:gap-10">
         {/* Section Heading */}
         <motion.h2

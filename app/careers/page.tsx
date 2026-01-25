@@ -12,8 +12,8 @@ export default function CareersPage() {
       <CorePerksSection />
       <OpenPositionsSection />
       <MissionVisionSection />
-      <TeamSection />
-      <ReadyToElevateSection />
+      {/* <TeamSection /> */}
+      {/* <ReadyToElevateSection /> */}
     </main>
   );
 }

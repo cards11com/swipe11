@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function CreatorsHero() {
   return (
-    <section className="relative w-full min-h-[calc(100vh-80px)] overflow-hidden py-12 md:py-16 lg:py-20">
+    <section className="relative w-full overflow-hidden py-8 md:py-16 lg:py-20 md:min-h-[calc(100vh-80px)]">
       {/* Left Side Creators - Stuck to left edge */}
       <motion.div
         initial={{ opacity: 0, x: -100 }}
@@ -16,7 +16,7 @@ export default function CreatorsHero() {
           delay: 0.2,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="absolute left-0 top-1/2 -translate-y-1/2 w-[120px] sm:w-[180px] md:w-[240px] lg:w-[320px] xl:w-[420px] 2xl:w-[480px]"
+        className="absolute left-0 top-1/2 -translate-y-1/2 w-[80px] sm:w-[140px] md:w-[240px] lg:w-[320px] xl:w-[420px] 2xl:w-[480px]"
       >
         <motion.div
           animate={{
@@ -40,18 +40,18 @@ export default function CreatorsHero() {
       </motion.div>
 
       {/* Center Content */}
-      <div className="relative z-10 flex items-center justify-center min-h-[calc(100vh-200px)]">
-        <div className="flex flex-col items-center gap-6 md:gap-8 text-center max-w-[600px] px-5 py-8 md:py-16">
+      <div className="relative z-10 flex items-center justify-center md:min-h-[calc(100vh-200px)]">
+        <div className="flex flex-col items-center gap-4 md:gap-8 text-center max-w-[600px] px-5 py-6 md:py-16">
           {/* Headline */}
           <h1 className="text-[#363636]">
             <motion.span
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="block text-[clamp(2.5rem,6vw,6rem)] font-black leading-[1.02] tracking-tight"
+              className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.1] tracking-tight"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Amplify Your
+              Monetize your Social Media
             </motion.span>
             <motion.span
               initial={{ opacity: 0, y: 40 }}
@@ -61,10 +61,10 @@ export default function CreatorsHero() {
                 delay: 0.15,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="block text-[clamp(2.5rem,6vw,6rem)] font-black leading-[1.02] tracking-tight"
+              className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-[1.1] tracking-tight"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Reach to max
+              reach to create impact.
             </motion.span>
           </h1>
 
@@ -77,12 +77,12 @@ export default function CreatorsHero() {
               delay: 0.35,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="text-[#003200] text-lg md:text-xl font-normal leading-relaxed"
+            className="text-[#003200] text-base md:text-xl font-normal leading-relaxed"
           >
-            Navigate the digital landscape with expert guidance.
+            Signup for Swipe11 creators community
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* CTA Button */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -91,28 +91,17 @@ export default function CreatorsHero() {
               delay: 0.5,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="flex flex-wrap gap-4 md:gap-6 items-center justify-center mt-2"
+            className="flex items-center justify-center mt-2"
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
               <Link
-                href="/contact"
-                className="inline-flex items-center justify-center bg-[#604cf1] text-white font-medium text-base md:text-lg px-6 py-3 rounded-full hover:bg-[#5040d9] transition-colors duration-200 min-w-[148px]"
+                href="#talk-to-us"
+                className="inline-flex items-center justify-center bg-[#604cf1] text-white font-medium text-base md:text-lg px-8 py-3 rounded-full hover:bg-[#5040d9] transition-colors duration-200 min-w-[148px]"
               >
-                Contact Us
-              </Link>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Link
-                href="/#services"
-                className="inline-flex items-center justify-center bg-white text-[#1e1e1e] font-medium text-base md:text-lg px-6 py-3 rounded-full border-2 border-black hover:bg-gray-50 transition-colors duration-200 min-w-[148px]"
-              >
-                View services
+                Signup
               </Link>
             </motion.div>
           </motion.div>
@@ -128,7 +117,7 @@ export default function CreatorsHero() {
           delay: 0.2,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="absolute right-0 top-1/2 -translate-y-1/2 w-[120px] sm:w-[180px] md:w-[240px] lg:w-[320px] xl:w-[420px] 2xl:w-[480px]"
+        className="absolute right-0 top-1/2 -translate-y-1/2 w-[80px] sm:w-[140px] md:w-[240px] lg:w-[320px] xl:w-[420px] 2xl:w-[480px]"
       >
         <motion.div
           animate={{

@@ -3,13 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const footerLinks = {
   company: [
     { href: "/about", label: "About Us" },
     { href: "/services", label: "Services" },
     { href: "/blogs", label: "Blogs" },
-    { href: "/contact", label: "Contact" },
+    { href: "/creators#talk-to-us", label: "Contact" },
   ],
   services: [
     { href: "/services#social-media", label: "Social Media Marketing" },
@@ -116,6 +117,49 @@ const itemVariants = {
 };
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+  const handleSubscribe = async (e: React.MouseEvent<HTMLButtonElement> | React.FormEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (!email) {
+      setStatus("error");
+      setMessage("Please enter your email address");
+      return;
+    }
+
+    setStatus("loading");
+    setMessage("");
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("success");
+        setMessage(data.message || "Successfully subscribed!");
+        setEmail("");
+      } else {
+        setStatus("error");
+        setMessage(data.error || "Failed to subscribe. Please try again.");
+      }
+    } catch (error) {
+      console.error("Subscribe error:", error);
+      setStatus("error");
+      setMessage("An error occurred. Please try again later.");
+    }
+  };
+
   return (
     <footer className="relative w-full bg-[#0f0f0f] text-white overflow-hidden">
       {/* Decorative gradient accent */}
@@ -245,21 +289,51 @@ export default function Footer() {
                 Get the latest marketing insights delivered to your inbox.
               </p>
             </div>
-            <form className="flex w-full md:w-auto max-w-md gap-3">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 md:w-64 px-4 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-white/40 focus:outline-none focus:border-[#604cf1] focus:ring-2 focus:ring-[#604cf1]/30 transition-all duration-200"
-              />
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                type="submit"
-                className="px-6 py-3 rounded-full bg-[#604cf1] text-white font-medium hover:bg-[#5040d9] transition-colors duration-200 whitespace-nowrap"
-              >
-                Subscribe
-              </motion.button>
-            </form>
+            <div className="w-full md:w-auto max-w-md">
+              <div className="flex gap-3">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      e.preventDefault();
+                      handleSubscribe(e as unknown as React.MouseEvent<HTMLButtonElement>);
+                    }
+                  }}
+                  placeholder="Enter your email"
+                  disabled={status === "loading"}
+                  className="flex-1 md:w-64 px-4 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder:text-white/40 focus:outline-none focus:border-[#604cf1] focus:ring-2 focus:ring-[#604cf1]/30 transition-all duration-200 disabled:opacity-50"
+                />
+                <button
+                  type="button"
+                  onClick={handleSubscribe}
+                  disabled={status === "loading"}
+                  className="px-6 py-3 rounded-full bg-[#604cf1] text-white font-medium hover:bg-[#5040d9] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {status === "loading" ? (
+                    <span className="flex items-center gap-2">
+                      <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      <span className="hidden sm:inline">Subscribing...</span>
+                    </span>
+                  ) : (
+                    "Subscribe"
+                  )}
+                </button>
+              </div>
+              {message && (
+                <p
+                  className={`mt-3 text-sm animate-fade-in ${
+                    status === "success" ? "text-[#caff1b]" : "text-red-400"
+                  }`}
+                >
+                  {message}
+                </p>
+              )}
+            </div>
           </div>
         </motion.div>
 

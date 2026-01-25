@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function ReadyToElevateSection() {
@@ -64,13 +65,14 @@ export default function ReadyToElevateSection() {
                   transition={{ duration: 0.5, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   className="mt-2"
                 >
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-[#604cf1] text-white font-medium text-base md:text-lg px-6 py-3 rounded-full hover:bg-[#5040d9] transition-colors duration-200 min-w-[148px]"
-                  >
-                    Contact Us
-                  </motion.button>
+                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                    <Link
+                      href="/creators#talk-to-us"
+                      className="inline-flex items-center justify-center bg-[#604cf1] text-white font-medium text-base md:text-lg px-6 py-3 rounded-full hover:bg-[#5040d9] transition-colors duration-200 min-w-[148px]"
+                    >
+                      Contact Us
+                    </Link>
+                  </motion.div>
                 </motion.div>
               </motion.div>
             </div>
@@ -80,6 +82,7 @@ export default function ReadyToElevateSection() {
     </section>
   );
 }
+
 
 
 

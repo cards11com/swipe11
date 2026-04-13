@@ -18,7 +18,7 @@ export default function AboutPage() {
       <MissionVisionSection />
       <UnlockGrowthSection />
       <FounderSection />
-      <AboutTeamSection />
+      {/* <AboutTeamSection /> */}
       <ReadyToElevateSection />
     </main>
   );
